@@ -180,7 +180,11 @@ After we ran the above code, we will have 42 elements and the first and last few
 
 How can we do it? Let's figure it out later. Now we go back to our first search result and find out which component of the element contains the title.
 
-We can see that for each
+<p align="middle">
+  <img src="img/3_2_4.png" height="350"/>
+</p>
+
+We can see from the above pic, for each
 ```
 <div class="news clearfix">
 ```
@@ -189,6 +193,9 @@ It contains two children elements,
 <div class="title">
 <div class="content">
 ```
+
+
+
 And our title is in its first child element with *title* as its class, and abstract in the second child element with *txt* as its class.
 
 The following command can help us abstract the title and abstract from it.
