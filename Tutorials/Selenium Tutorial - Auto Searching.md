@@ -181,7 +181,7 @@ After we ran the above code, we will have 42 elements and the first and last few
 How can we do it? Let's figure it out later. Now we go back to our first search result and find out which component of the element contains the title.
 
 <p align="middle">
-  <img src="img/3_2_4.png" height="350"/>
+  <img src="img/3_2_2.png" height="350"/>
 </p>
 
 We can see from the above pic, for each
