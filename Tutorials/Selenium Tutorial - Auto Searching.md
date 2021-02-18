@@ -250,7 +250,7 @@ for temp_result in temp_results:  # loop for everyt result
 Now you should have the result list which looks like this:
 
 <p align="middle">
-  <img src="img/3_2_6.png" height="350"/>
+  <img src="img/3_2_7.png" height="350"/>
 </p>
 Next thing we need to do is to save the data into a Excel file:
 ```
@@ -261,5 +261,5 @@ result.to_csv('result.csv') # we save it as an Excel file
 The result looks like this:
 
 <p align="middle">
-  <img src="img/3_2_7.png" height="350"/>
+  <img src="img/3_2_8.png" height="350"/>
 </p>
