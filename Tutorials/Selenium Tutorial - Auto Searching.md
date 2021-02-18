@@ -15,9 +15,9 @@
 This is a simple auto-searching task, after this tutorial, you will learn how to write a python code to search your target companies on some public website (e.g.: China Banking Regulatory Commission) and save the title and abstract of the result to Excel. Here is a list of our target website. I will use first three websites for demonstration and leave the rest of them for practise.
 
 ```
-[01] https://www.creditchina.gov.cn
+[01] http://www.chinatax.gov.cn
 [02] http://www.gsxt.gov.cn
-[03] http://www.chinatax.gov.cn
+[03] http://www.creditchina.gov.cn
 [04] http://www.chinasafety.gov.cn
 [05] http://www.mee.gov.cn
 [06] http://www.miit.gov.cn
