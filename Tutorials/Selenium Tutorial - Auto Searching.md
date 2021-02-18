@@ -1,5 +1,8 @@
 # Selenium Tutorial - Auto Searching 
 
+*A simple and straight forward introduction to Selenium*
+*I am using Chrome driver*
+
 - [Selenium Tutorial - Auto Searching](#selenium-tutorial---auto-searching)
   * [0. Introduction](#0-introduction)
   * [1. Installation](#1-installation)
@@ -8,11 +11,6 @@
     + [3.1 Searching](#31-searching)
     + [3.2 Extracting Information - BeautifulSoup](#32-extracting-information---beautifulsoup)
     
-*A simple and straight forward introduction to Selenium*
-*I am using Chrome driver*
-
-[toc]
-
 ## 0. Introduction
 This is a simple auto-searching task, after this tutorial, you will learn how to write a python code to search your target companies on some public website (e.g.: China Banking Regulatory Commission) and save the title and abstract of the result to Excel. Here is a list of our target website. I will use first three websites for demonstration and leave the rest of them for practise.
 
