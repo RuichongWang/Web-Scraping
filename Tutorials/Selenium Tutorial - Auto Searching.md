@@ -1,7 +1,17 @@
 # Selenium Tutorial - Auto Searching 
 
+- [Selenium Tutorial - Auto Searching](#selenium-tutorial---auto-searching)
+  * [0. Introduction](#0-introduction)
+  * [1. Installation](#1-installation)
+  * [2. Create Target Websites And Launch Chrome Driver](#2-create-target-websites-and-launch-chrome-driver)
+  * [3. First Website](#3-first-website)
+    + [3.1 Searching](#31-searching)
+    + [3.2 Extracting Information - BeautifulSoup](#32-extracting-information---beautifulsoup)
+    
 *A simple and straight forward introduction to Selenium*
 *I am using Chrome driver*
+
+[toc]
 
 ## 0. Introduction
 This is a simple auto-searching task, after this tutorial, you will learn how to write a python code to search your target companies on some public website (e.g.: China Banking Regulatory Commission) and save the title and abstract of the result to Excel. Here is a list of our target website. I will use first three websites for demonstration and leave the rest of them for practise.
@@ -125,12 +135,12 @@ After running the above code, we can see that the Chrome driver successfully sea
 ### 3.2 Extracting Information - BeautifulSoup
 First we right click on the page and select *Inspect* to inspect the element on this page.
 <p align="middle">
-  <img src="img/3_2_1.png" height="250"/>
+  <img src="img/3_2_1.png" height="350"/>
 </p>
 
 Then we *Inspect* again, this time we right click the title we want to save, for example, here I right click on the first result 书写“最长情”的告白.
 <p align="middle">
-  <img src="img/3_2_2.png" height="250"/>
+  <img src="img/3_2_2.png" height="350"/>
 </p>
 
 This time, we will find the element change to the part we selected. 
@@ -138,7 +148,7 @@ This time, we will find the element change to the part we selected.
 Put the cursor on each line of the element, it will highlight the corresponding content on the website. 
 
 <p align="middle">
-  <img src="img/3_2_3.png" height="250"/>
+  <img src="img/3_2_3.png" height="350"/>
 </p>
 
 We can folded each group of element and find out that each 
@@ -148,7 +158,7 @@ We can folded each group of element and find out that each
 refer to one search result.
 
 <p align="middle">
-  <img src="img/3_2_4.png" height="250"/>
+  <img src="img/3_2_4.png" height="350"/>
 </p>
 
 Now, we need to use *BeautifulSoup* to locate these element. 
@@ -167,7 +177,7 @@ temp_results=temp_results.find_all('div',attrs={'class':'clearfix'})  # tell Bea
 After we ran the above code, we will have 42 elements and the first and last few of the elements is not search result and we want to get rid of them.
 
 <p align="middle">
-  <img src="img/3_2_5.png" height="250"/>
+  <img src="img/3_2_5.png" height="350"/>
 </p>
 
 How can we do it? Let's figure it out later. Now we go back to our first search result and find out which component of the element contains the title.
@@ -223,11 +233,33 @@ Finally! Remember those element we don't want? Now its time to skip them. To do 
 These commands can be useful when you don't know if your code will have an error. Remember only the search results have those two children elements and if you try to acess the *title_element* of a irrelevant element, it will cause an error, so we can use *try* and *except* to skip irrelevant elements.
 
 ```
-<div class="title">
-<div class="content">
+result=[] # first we create a empty list to store the result
+for temp_result in temp_results:  # loop for everyt result
+    try:
+        title_element = temp_result.find(attrs={'title':True})
+        title = title_element.get('title')
+
+        abstract_element = temp_result.find(attrs={'class':'txt'})
+        abstract = abstract_element.get_text()
+        abstract = abstract.strip()
+        
+        result.append([title,abstract])
+    except:   # if there is an error, we do nothing
+        pass
+```
+Now you should have the result list which looks like this:
+
+<p align="middle">
+  <img src="img/3_2_6.png" height="350"/>
+</p>
+Next thing we need to do is to save the data into a Excel file:
+```
+result = pd.DataFrame(result,columns=['title','abstract'])  # we create a dataframe based on our result, the first column is title and the second one is abstract.
+result.to_csv('result.csv') # we save it as an Excel file
 ```
 
+The result looks like this:
 
-
-
-
+<p align="middle">
+  <img src="img/3_2_7.png" height="350"/>
+</p>
