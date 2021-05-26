@@ -1,4 +1,4 @@
-# Selenium Tutorial - Auto Searching 
+# Web Crawler - Selenium Tutorial - Auto Searching 
 
 *A simple and straight forward introduction to Selenium*
 *I am using Chrome driver*
